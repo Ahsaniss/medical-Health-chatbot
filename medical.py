@@ -1,10 +1,10 @@
 import streamlit as st
-import google.generativeai as palm
+import google.generativeai as genai
+import os
 
-# Configure the Gemini AI Flash API using Streamlit secrets
-palm.configure(api_key=st.secrets["api_key"])
-
-# Your code here...
+# Directly set your API key here (for testing purposes)
+api_key = "AIzaSyBCEhToUI4aWoyeM0tdSOU4OllSOS5cJNU"  # Replace with your actual API key
+genai.configure(api_key=api_key)
 
 # Custom CSS to enhance the UI
 st.markdown("""
@@ -53,13 +53,13 @@ st.markdown("""
 # Function to get food recommendations
 def get_food_recommendation(user_input):
     prompt = f"Based on the user's health, suggest the best food items like vegetables and other food items. User's health condition: {user_input}"
-    response = palm.chat(messages=[{"content": prompt}])
+    response = genai.chat(messages=[{"content": prompt}])
     return response.messages[-1]['content']
 
 # Function to get disease suggestions
 def get_disease_suggestion(user_input):
     prompt = f"Based on the following symptoms, suggest what disease this might be. Symptoms: {user_input}. Please note that this is not a professional diagnosis."
-    response = palm.chat(messages=[{"content": prompt}])
+    response = genai.chat(messages=[{"content": prompt}])
     return response.messages[-1]['content']
 
 def main():
