@@ -1,10 +1,7 @@
 import streamlit as st
 import google.generativeai as genai
-import os
+api_key = st.secrets["claude_api_key"]
 
-# Directly set your API key here (for testing purposes)
-api_key = "AIzaSyBCEhToUI4aWoyeM0tdSOU4OllSOS5cJNU"  # Replace with your actual API key
-genai.configure(api_key=api_key)
 
 # Custom CSS to enhance the UI
 st.markdown("""
