@@ -1,7 +1,8 @@
 import streamlit as st
 import google.generativeai as palm
 
-# Configure the Gemini AI Flash API
+
+# Configure the Gemini AI Flash APi
 api_key = st.secrets["api_key"]
 palm.configure(api_key=api_key)
 
